@@ -1,0 +1,134 @@
+{
+  "cse8a": {
+    "reqs": []
+  },
+  "cse8b": {
+    "reqs": ["cse8a"]
+  },
+  "cse11": {
+    "reqs": []
+  },
+  "cse12": {
+    "reqs": [["cse8b", "cse11"]]
+  },
+  "cse15l": {
+    "reqs": [["cse8b", "cse11"]]
+  },
+  "cse20": {
+    "reqs": [["cse8a", "cse8b", "cse11"]]
+  },
+  "cse21": {
+    "reqs": [["cse20", "math15a"]]
+  },
+  "cse30": {
+    "reqs": ["cse12", "cse15l"]
+  },
+  "cse100": {
+    "reqs": ["cse12", "cse15l", ["cse21", "math15b"], ["cse5a", "cse30", "ece15", "mae9"]]
+  },
+  "cse101": {
+    "reqs": ["cse12", ["cse21", "math15b", "math100a", "math103a"], ["cse100", "math176"]]
+  },
+  "cse103": {
+    "reqs": ["math20a", "math20b"]
+  },
+  "cse105": {
+    "reqs": ["cse12", ["cse21", "math15b", "math100a", "math103a"]]
+  },
+  "cse107": {
+    "reqs": [["cse21", "math15b"], ["cse101", "math188"], ["cse105", "math166"]]
+  },
+  "cse110": {
+    "reqs": ["cse12", ["cse21", "math15b"]]
+  },
+  "cse118": {
+    "reqs": [["cse131", "cse132B", "cogs102c", "cogs121", "cogs184", "comt111b", "comt115", "ece111", "ece118", "ece191", "ece192", "icam160b"]]
+  },
+  "cse120": {
+    "reqs": ["cse30", ["cse101", "math188"], ["cse70", "CSE 110"]]
+  },
+  "cse121": {
+    "reqs": ["cse120"]
+  },
+  "cse123": {
+    "reqs": ["cse120"]
+  },
+  "cse124": {
+    "reqs": ["cse120"]
+  },
+  "cse125": {
+    "reqs": []
+  },
+  "cse130": {
+    "reqs": ["cse12", ["cse100", "math176"], ["cse105", "math166"]]
+  },
+  "cse131": {
+    "reqs": [["cse100", "math176"], ["cse105", "math166"], ["cse70", "cse110"], "cse130"]
+  },
+  "cse132a": {
+    "reqs": [["cse100", "math176"]]
+  },
+  "cse132b": {
+    "reqs": ["cse132a"]
+  },
+  "cse134b": {
+    "reqs": [["cse100", "math176"]]
+  },
+  "cse135": {
+    "reqs": [["cse100", "math176"]]
+  },
+  "cse140": {
+    "reqs": [["cse20", "math15a"]]
+  },
+  "cse140l": {
+    "reqs": [["cse20", "math15a"]]
+  },
+  "cse141": {
+    "reqs": ["cse140", "cse140l"]
+  },
+  "cse141l": {
+    "reqs": ["cse140", "cse140l", "cse110"]
+  },
+  "cse143": {
+    "reqs": [["cse140", "cse170a", "ece81"]]
+  },
+  "cse144": {
+    "reqs": ["cse140", "cse140l"]
+  },
+  "cse145": {
+    "reqs": ["cse30"]
+  },
+  "cse148": {
+    "reqs": ["cse141", "cse141l"]
+  },
+  "cse150": {
+    "reqs": [["cse100", "math176"]]
+  },
+  "cse151": {
+    "reqs": [["cse100", "math176"]]
+  },
+  "cse152": {
+    "reqs": ["math20f", ["cse100", "math176"], ["cse101", "math188"]]
+  },
+  "cse153": {
+    "reqs": [["cse100", "math176"]]
+  },
+  "cse160": {
+    "reqs": [["cse100", "math176"]]
+  },
+  "cse164": {
+    "reqs": ["cse167"]
+  },
+  "cse165": {
+    "reqs": ["cse167"]
+  },
+  "cse166": {
+    "reqs": ["math20f", ["cse100", "math176"]]
+  },
+  "cse167": {
+    "reqs": [["cse100", "math176"]]
+  },
+  "cse168": {
+    "reqs": ["cse167"]
+  }
+}
