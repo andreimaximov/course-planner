@@ -45,7 +45,7 @@
     "reqs": [["cse131", "cse132B", "cogs102c", "cogs121", "cogs184", "comt111b", "comt115", "ece111", "ece118", "ece191", "ece192", "icam160b"]]
   },
   "cse120": {
-    "reqs": ["cse30", ["cse101", "math188"], ["cse70", "CSE 110"]]
+    "reqs": ["cse30", ["cse101", "math188"], ["cse70", "cse110"]]
   },
   "cse121": {
     "reqs": ["cse120"]
