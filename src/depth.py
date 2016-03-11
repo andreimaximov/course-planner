@@ -1,6 +1,4 @@
 import json
-from graph import Graph
-from graph import Course
 
 
 def fulfill(title, required):
@@ -12,13 +10,13 @@ def fulfill(title, required):
         fulfill(title, required)
 
 
-def mindepth(titles, courses, cache):
-    depths = dict()
+def mincourse(titles, courses, cache):
+    result = None
     for title in titles:
         depth = maxdepth(title, courses, cache)
-        if depth is not None:
-            depths[title] = depth
-    return min(depths, key=depths.get)
+        if depth is not None and (result is None or depth < result[1]):
+            result = (title, depth)
+    return result[0]
 
 
 def maxdepth(title, courses, cache):
@@ -26,18 +24,17 @@ def maxdepth(title, courses, cache):
         return cache[title]
     if title not in courses:
         return None
-    depths = list()
+    depth = 1
     for preq in courses[title]["reqs"]:
         if isinstance(preq, list):
-            preq = mindepth(preq, courses, cache)
+            preq = mincourse(preq, courses, cache)
         if preq is None:
             continue
-        depth = maxdepth(preq, courses, cache)
-        if depth is None:
-            continue
-        depths.append(depth + 1)
-    cache[title] = max(depths)
-    return cache[title]
+        d = maxdepth(preq, courses, cache)
+        if d is not None:
+            depth = max(depth, d + 1)
+    cache[title] = depth
+    return depth
 
 
 def calculate(fulfilled, courses, required):
@@ -52,18 +49,11 @@ def calculate(fulfilled, courses, required):
 
 
 def run(args):
-    graph = Graph()
-
     courses = json.load(args.courses)
-    for title in courses:
-        reqs = courses[title]["reqs"]
-        graph.add(Course(title, reqs))
 
     fulfilled = list()
     if args.fulfilled is not None:
         fulfilled = list(args.fulfilled.read().splitlines())
-    for title in fulfilled:
-        graph.take(title)
 
     required = json.load(args.required)
 
@@ -73,9 +63,10 @@ def run(args):
 
 
 def init(parent):
-    parser = parent.add_parser("depth", description=("Calculate depth of "
-                               "required pre-requisites that have not been "
-                               "taken yet"), help="depth --help")
+    description = ("Calculate depth of required pre-requisites that have not "
+                   "been taken yet")
+    parser = parent.add_parser("depth", description=description,
+                               help="depth --help")
     parser.add_argument("courses", help="JSON file with course pre-requisites",
                         type=open)
     parser.add_argument("required",
