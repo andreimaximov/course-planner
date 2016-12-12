@@ -7,7 +7,7 @@ This Python 3 command line utility provides a set of class planning tools.
 # Usage
 
 ```
-usage: main.py [-h] [--version] {list,depth} ...
+usage: src [-h] [--version] {list,depth} ...
 
 positional arguments:
   {list,depth}
@@ -22,7 +22,7 @@ optional arguments:
 # List
 
 ```
-usage: main.py list [-h] [-f FULFILLED] courses
+usage: src list [-h] [-f FULFILLED] courses
 
 List all classes that can be taken
 
@@ -38,7 +38,7 @@ optional arguments:
 # Depth
 
 ```
-usage: main.py depth [-h] [-f FULFILLED] courses required
+usage: src depth [-h] [-f FULFILLED] courses required
 
 Calculate depth of required pre-requisites that have not been taken yet
 
